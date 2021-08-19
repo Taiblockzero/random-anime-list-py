@@ -14,10 +14,13 @@ while len(randomAnimeNames) < 10:
             except KeyError:
                 pass
 
-f = open("C:\\Users\\Ivo\\Documents\\Python\\RandomAnimeListPy\\RandomAnimeList.txt", "a")
-for i in randomAnimeNames:
-    f.write(i)
-    f.write("\n")
-f.close()
+mode = input("Write 1 for write-to-file mode, any other key for print only:")
+
+if mode == '1':
+    f = open("C:\\Users\\Ivo\\Documents\\Python\\RandomAnimeListPy\\RandomAnimeList.txt", "a")
+    for i in randomAnimeNames:
+        f.write(i)
+        f.write("\n")
+    f.close()
 
 print(randomAnimeNames)
