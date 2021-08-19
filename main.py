@@ -9,6 +9,15 @@ while len(randomAnimeNames) < 10:
         try:
             randomAnimeNames.append(response.json()['data']['attributes']['titles']['en'])
         except KeyError:
-            randomAnimeNames.append(response.json()['data']['attributes']['titles']['en_jp'])
+            try:
+                randomAnimeNames.append(response.json()['data']['attributes']['titles']['en_jp'])
+            except KeyError:
+                pass
+
+f = open("C:\\Users\\Ivo\\Documents\\Python\\RandomAnimeListPy\\RandomAnimeList.txt", "a")
+for i in randomAnimeNames:
+    f.write(i)
+    f.write("\n")
+f.close()
 
 print(randomAnimeNames)
